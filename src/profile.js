@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Profile() {
-  const [name] = useState('Sai Siddhardha Narisetty');
-  const [description] = useState('Biography comes here.');
+  const [name, setName] = useState('SaiSiddhardha Narisetty');
+  const [description, setDescription] = useState('I am a professional software engineer. My tech stacks include Javascript and Python');
 
   return (
     <div className="container my-4">
@@ -17,8 +17,8 @@ function Profile() {
             <input 
               id="nameInput"
               className="form-control" 
-              value={name} 
-              readOnly // This makes the field non-editable
+              value={name}
+              onChange={(e) => setName(e.target.value)} // Update state on change
             />
           </div>
           <div className="form-group">
@@ -26,8 +26,8 @@ function Profile() {
             <textarea 
               id="bioInput"
               className="form-control" 
-              value={description} 
-              readOnly // This makes the field non-editable
+              value={description}
+              onChange={(e) => setDescription(e.target.value)} // Update state on change
               style={{ height: 'calc(300px - 88px)' }} // Adjust the height to align with the image
             />
           </div>
