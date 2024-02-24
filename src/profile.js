@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Profile() {
-  const [name, setName] = useState('SaiSiddhardha Narisetty');
-  const [description, setDescription] = useState('I am a professional software engineer. My tech stacks include Javascript and Python');
+  // State for input fields, initialized from localStorage
+  const [name, setName] = useState(localStorage.getItem('name') || 'SaiSiddhardha Narisetty');
+  const [description, setDescription] = useState(localStorage.getItem('description') || 'I am a professional software engineer. My tech stacks include Javascript and Python');
+
+  // Save to localStorage when input fields lose focus
+  const handleBlur = () => {
+    localStorage.setItem('name', name);
+    localStorage.setItem('description', description);
+  };
 
   return (
     <div className="container my-4">
       <div className="row">
         <div className="col-md-4 d-flex align-items-start">
+          {/* Ensure the image source matches the one you're using */}
           <img src="sample.png" alt="Profile" style={{ width: '300px', height: '300px' }} />
         </div>
         <div className="col-md-8">
@@ -18,7 +26,8 @@ function Profile() {
               id="nameInput"
               className="form-control" 
               value={name}
-              onChange={(e) => setName(e.target.value)} // Update state on change
+              onChange={(e) => setName(e.target.value)}
+              onBlur={handleBlur} // Save on losing focus
             />
           </div>
           <div className="form-group">
@@ -27,8 +36,9 @@ function Profile() {
               id="bioInput"
               className="form-control" 
               value={description}
-              onChange={(e) => setDescription(e.target.value)} // Update state on change
-              style={{ height: 'calc(300px - 88px)' }} // Adjust the height to align with the image
+              onChange={(e) => setDescription(e.target.value)}
+              onBlur={handleBlur} // Save on losing focus
+              style={{ height: 'calc(300px - 88px)' }}
             />
           </div>
         </div>
