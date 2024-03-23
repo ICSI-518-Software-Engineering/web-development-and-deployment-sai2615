@@ -1,6 +1,6 @@
 import React from 'react';
-import Profile from './profile';
-import Addition from './addition';
+import Profile from './clientside/profile';
+import Addition from './serverside/addition';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
