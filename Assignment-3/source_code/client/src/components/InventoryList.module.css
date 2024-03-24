@@ -1,0 +1,66 @@
+.listContainer {
+  padding: 20px;
+  margin: auto;
+  max-width: 100%;
+  overflow-x: auto; /* Ensures table is responsive */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow around the container */
+  background-color: #fff; /* Light background */
+  border-radius: 8px; /* Rounded corners */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Removes space between borders */
+}
+
+th, td {
+  text-align: left;
+  padding: 12px; /* Spacing inside cells */
+  border-bottom: 1px solid #ddd; /* Light line between rows */
+}
+
+th {
+  background-color: #007bff; /* Blue header background */
+  color: #ffffff; /* White text for headers */
+}
+
+tr:hover {
+  background-color: #f5f5f5; /* Slight highlight on row hover */
+}
+
+.itemImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover; /* Ensures images are scaled correctly */
+  border-radius: 50%; /* Circular images */
+}
+
+input[type="text"], input[type="number"], input[type="file"] {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px; /* Spacing around inputs */
+  border: 1px solid #ddd;
+  border-radius: 4px; /* Rounded corners on inputs */
+  width: calc(100% - 20px); /* Full width inside cell */
+}
+
+button {
+  padding: 8px 15px;
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover effects */
+}
+
+button:hover {
+  opacity: 0.85; /* Slight dim on hover */
+}
+
+.deleteButton {
+  background-color: #dc3545; /* Red background for delete */
+}
+
+.deleteButton:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
