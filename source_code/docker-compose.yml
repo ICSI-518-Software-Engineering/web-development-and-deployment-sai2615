@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  frontend:
+    build: ./frontend/userapp
+    ports:
+      - "80:80"
+    environment:
+      - FRONTEND_ORIGIN=${FRONTEND_ORIGIN}
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/userapp/build:/usr/src/app/public  # Map local build directory to the backend's public directory
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - mongodata:/data/db
+
+volumes:
+  mongodata:
